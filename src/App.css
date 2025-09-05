@@ -85,6 +85,9 @@
   border: 1px solid #d0d7de;
   display: flex;
   flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
 }
 
 /* 잔디 차트 이미지 스타일 */

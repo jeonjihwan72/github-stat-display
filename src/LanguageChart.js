@@ -53,6 +53,18 @@ function LanguageChart({ username }) {
     ],
   };
 
+  // 범례를 우측으로 설정
+  const chartOptions = {
+    // 반응형 및 크기 유지를 위한 옵션
+    responsive: true,
+    maintainAspectRatio: false, 
+    plugins: {
+      legend: {
+        position: 'right', // 범례(항목 명) 위치를 오른쪽으로 설정
+      },
+    },
+  };
+
   if (loading) {
     return <div><p>언어 데이터를 불러오는 중...</p></div>;
   }
@@ -61,7 +73,7 @@ function LanguageChart({ username }) {
     <div>
       <h3>Language Stats for {username}</h3>
       <div style={{ position: 'relative', width: '400px', height: '400px' }}>
-        <Pie data={chartData} />
+        <Pie data={chartData} options={chartOptions} />
       </div>
     </div>
   );
