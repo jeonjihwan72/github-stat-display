@@ -6,6 +6,7 @@ import './App.css';
 // 각 컴포넌트를 개별 파일에서 import 합니다.
 import UserProfile from './UserProfile';
 import LanguageChart from './LanguageChart'; // 방금 만든 파일을 import
+// 잔디는 다른 사이트의 이미지로 대체하여 사용
 // import ContributionGraph from './ContributionGraph';
 import CommitGraph from './CommitGraph';
 
@@ -36,15 +37,21 @@ function App() {
           </form>
         </header>
         
-        <section className="top-section">
-          {/* 각 컴포넌트에 username을 props로 전달합니다. */}
-          <UserProfile username={username} />
-          <LanguageChart username={username} /> 
-        </section>
-        
-        <section className="bottom-section">
-          <CommitGraph username={username} />
-        </section>
+        <div className="content-grid">
+          <div className="Profile">
+            <UserProfile username={username} />
+          </div>
+          <div className="Language">
+            <LanguageChart username={username} /> 
+          </div>
+          <div className="Grass">
+            {/* 'Grass' 영역을 위해 ContributionGraph 컴포넌트를 추가합니다. */}
+            <img src={`https://ghchart.rshah.org/${username}`} alt="GitHub chart" />
+          </div>
+          <div className="CommitTime">
+            <CommitGraph username={username} />
+          </div>
+        </div>
 
       </main>
     </div>

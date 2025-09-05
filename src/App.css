@@ -3,10 +3,40 @@
 }
 .sidebar {
   width: 200px;
-  background-color: #f5f5f5;
+  background-color: #05614B;
   /* 추가적인 스타일 */
 }
 .main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #020e0e;
+}
+
+.content-grid {
+  padding: 16px;
   flex-grow: 1;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 16px 16px;
+  grid-template-areas: 
+    "Profile Profile Language Language"
+    "Profile Profile Language Language"
+    "Grass Grass Grass Grass"
+    "CommitTime CommitTime CommitTime CommitTime"
+}
+
+.Profile { grid-area: Profile; }
+.Language { grid-area: Language; }
+.Grass { grid-area: Grass; }
+.CommitTime { grid-area: CommitTime; }
+
+/* 각 그리드 아이템이 내부 콘텐츠를 잘 표시하도록 설정 */
+.Profile, .Language, .Grass, .CommitTime {
+  background-color: #01de82;
+  padding: 1rem;
+  border-radius: 8px;
 }
