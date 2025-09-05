@@ -15,6 +15,7 @@ const LANGUAGE_COLORS = {
   TypeScript: { background: 'rgba(49, 120, 198, 0.7)', border: 'rgba(49, 120, 198, 1)' },
   Shell: { background: 'rgba(137, 224, 81, 0.7)', border: 'rgba(137, 224, 81, 1)' },
   Vue: { background: 'rgba(65, 184, 131, 0.7)', border: 'rgba(65, 184, 131, 1)' },
+  Verilog: { background: 'rgba(188, 198, 255, 0.7)', border: 'rgba(188, 198, 255, 1)' },
   Ruby: { background: 'rgba(204, 29, 1, 0.7)', border: 'rgba(204, 29, 1, 1)'},
 };
 
@@ -93,7 +94,7 @@ function LanguageChart({ username }) {
   };
 
   if (loading) {
-    return <div><p>Loading language data...</p></div>;
+    return <div><p>언어 데이터 불러오는 중...</p></div>;
   }
   
   return (
