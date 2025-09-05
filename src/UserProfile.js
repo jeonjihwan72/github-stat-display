@@ -14,7 +14,7 @@ function UserProfile({ username }) {
 
   return (
     <div className="profile-container">
-      <img src={user.avatar_url} alt={`${user.login}의 프로필 사진`} style={{width: '200px', borderRadius: '50%'}} />
+      <img src={user.avatar_url} alt={`${user.login}의 프로필 사진`} style={{width: '300px', borderRadius: '50%'}} />
       <h2>{user.name}</h2>
       <p>{user.login}</p>
     </div>

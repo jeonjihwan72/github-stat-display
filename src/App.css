@@ -7,13 +7,18 @@
 /* 사이드바 스타일 */
 .sidebar {
   width: 240px; /* 너비를 고정값으로 설정 */
-  height: 100%;
   background-color: #0d1117; /* 어두운 배경색 */
   color: #c9d1d9; /* 글자색 */
   padding: 1.5rem;
   /* flex 아이템의 너비가 줄어들지 않도록 설정 */
   flex-shrink: 0; 
 
+  position: -webkit-sticky; /* Safari 브라우저 호환성을 위해 추가 */
+  position: sticky;
+  top: 0; /* 화면 상단에서 0px 위치에 고정 */
+  
+  /* 사이드바가 항상 전체 높이를 차지하도록 설정 */
+  height: 100vh; 
 }
 
 /* 메인 콘텐츠 영역 (헤더 + 그리드) */
@@ -24,6 +29,9 @@
   flex-grow: 1; 
   /* flex-grow 사용 시 내용이 넘치는 것을 방지하기 위한 설정 */
   width: 0; 
+
+  overflow-y: auto; 
+  height: 100vh;
 }
 
 /* 헤더 스타일 */
@@ -31,6 +39,13 @@
   background-color: #ffffff;
   padding: 1rem 1.5rem;
   border-bottom: 1px solid #d0d7de;
+
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0; /* main-content 상단에서 0px 위치에 고정 */
+
+  /* 스크롤 시 다른 콘텐츠 위에 표시되도록 z-index 설정 */
+  z-index: 10;
 }
 
 /* 헤더 안의 검색 폼 스타일링 */
@@ -62,7 +77,7 @@
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1.5fr 2.5fr;
   gap: 16px;
   grid-template-areas: 
     "Profile Profile Language Language"
@@ -78,9 +93,8 @@
 
 /* 각 그리드 아이템의 공통 스타일 */
 .Profile, .Language, .Grass, .CommitTime {
-  
   background-color: #ffffff;
-  padding: 1rem;
+  padding: 3rem;
   border-radius: 8px;
   border: 1px solid #d0d7de;
   display: flex;
@@ -88,6 +102,8 @@
 
   align-items: center;
   justify-content: center;
+
+  object-fit: contain;
 }
 
 /* 잔디 차트 이미지 스타일 */

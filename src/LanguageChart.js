@@ -98,11 +98,20 @@ function LanguageChart({ username }) {
   }
   
   return (
-    <div>
-      <h3>Language Stats for {username}</h3>
-      <div style={{ position: 'relative', height: '400px' }}>
-        <Pie data={chartData} options={chartOptions} />
-      </div>
+    // 1. 최상위 div가 flex 속성을 이용해 높이를 100% 채우도록 스타일 추가
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+      {/* 제목이 줄어들지 않도록 설정 */}
+      <h3 style={{ flexShrink: 0, textAlign: 'center' }}>Language Stats</h3> 
+      {sortedStats.length > 0 ? (
+        // 2. 차트를 감싸는 div가 남은 공간을 모두 차지하도록 설정
+        <div style={{ position: 'relative', flexGrow: 1 }}>
+          <Pie data={chartData} options={chartOptions} />
+        </div>
+      ) : (
+        <p style={{ textAlign: 'center', flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          언어 데이터를 찾을 수 없습니다.
+        </p>
+      )}
     </div>
   );
 }

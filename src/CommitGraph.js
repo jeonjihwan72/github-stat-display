@@ -99,14 +99,17 @@ function CommitGraph({ username }) {
   
   // 데이터 로딩이 완료되면 차트를 렌더링합니다.
   return (
-    <div>
-      <h3>Recent Commits</h3>
+    // 1. 최상위 div가 flex 속성을 이용해 높이를 100% 채우도록 스타일 추가
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+      <h3 style={{ flexShrink: 0 }}>Recent Commits</h3> {/* 제목이 줄어들지 않도록 설정 */}
       {chartData ? (
-        <div style={{ position: 'relative', height: '250px' }}>
+        // 2. 차트를 감싸는 div가 남은 공간을 모두 차지하도록 설정
+        <div style={{ position: 'relative', flexGrow: 1 }}>
           <Bar 
             data={chartData} 
             options={{ 
-              maintainAspectRatio: false, // 이 옵션으로 차트 높이를 조절할 수 있습니다.
+              maintainAspectRatio: false, // 이 옵션으로 차트가 부모 div에 맞춰짐
+              responsive: true, // 반응형으로 크기 조절
               scales: {
                 y: {
                   beginAtZero: true
